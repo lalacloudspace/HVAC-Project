@@ -1,0 +1,36 @@
+version: 0.2
+        
+phases: #This is where I define the different phases of the build process
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - echo ==== INSTALL CFN-LINT ====
+      - pip install cfn-lint  
+ 
+  pre_build: 
+    commands:
+      - echo ==== CHECH IF PYTHON CFN-LINT AND AWSCLI WAS INSTALLED ====
+      - python --version
+      - aws --version
+      - cfn-lint --version
+      
+        
+  build:
+    commands:
+      - echo ==== CHECK FOR SYNTAX IN THE TEMPLATE ====
+      - cfn-lint HVACWebsite.yaml
+      - echo ==== BUILD OUR CFN TEMPLATE ====
+      - aws cloudformation package --template-file HVACWebsite.yaml --s3-bucket mydeploy-artifact-bucket --output-template-file build-artifact-template.yaml
+
+
+  post_build:
+    commands:
+      - echo ==== POST-BUILD SECTION ====
+      - echo Build completed on `date`
+     
+artifacts:
+  files:
+    - '**/*'
+ 
+  
