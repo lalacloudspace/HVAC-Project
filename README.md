@@ -45,13 +45,11 @@ The project uses **GitHub as the source**. Every push triggers **CodePipeline**,
 
 ## CI/CD Pipeline Stages
 
-This project is designed as a **5-stage pipeline**:
+This project is designed as a **3-stage pipeline**:
 
 1. **Source Stage** – Pulls code from GitHub.  
 2. **Build/Test Stage** – Optional build or validation steps.  
 3. **Deploy-DEV Stage** – Deploys the website to a development environment.  
-4. **Approval Stage** – Manual approval before production deployment.  
-5. **Deploy-PROD Stage** – Deploys the website to the production environment, making it live.
 
 ---
 
