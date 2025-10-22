@@ -59,7 +59,7 @@ This project is designed as a **3-stage pipeline**:
 - Online booking system integrated
 - Secure with HTTPS
 - Automated deployment using GitHub → CodePipeline → CloudFormation
-- 5-stage CI/CD pipeline ensuring safe, controlled production releases
+- 3-stage CI/CD pipeline ensuring safe, controlled production releases
 
 ---
 
